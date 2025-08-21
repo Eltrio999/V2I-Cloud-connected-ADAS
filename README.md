@@ -83,7 +83,7 @@ Modern roads often present unpredictable challenges like accidents, construction
 
 ---
 
-## 🔗 Project Highlight
+## 🔗 Project Highlight & Video
 
 Check out our project featured on LinkedIn:  
 👉 [AI + IoT for Road Safety – LinkedIn Post](https://www.linkedin.com/posts/bishoy-wasfey-49162433_ai-iot-roadsafety-activity-7298999531361202176-woZP?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFXH9UMB3_MYrKM8vMf-2n4K655DhAI6H5E)
