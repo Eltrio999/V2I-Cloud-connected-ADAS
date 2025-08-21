@@ -1,62 +1,90 @@
-# V2I-Cloud-connected-ADAS
+# 🚗 Cloud-Connected Driver Notification System
 
-An intelligent IoT-based driver assistance system using Raspberry Pi, GPS, and AI to enhance road safety by providing real-time traffic alerts and on-device traffic sign recognition.
+An intelligent real-time driver assistance system that leverages GPS, cloud analytics (AWS), and AI-powered traffic sign recognition to notify drivers of current road conditions—even without internet access.
+
+---
+
+## 📘 Project Overview
+
+Modern roads often present unpredictable challenges like accidents, construction, or weather changes. This project offers a hybrid system combining AWS-based cloud processing and on-device AI to alert drivers of such conditions in real-time, ensuring greater safety and driving efficiency.
 
 ---
 
 ## 📌 Features
 
-- 📍 Real-time GPS tracking with Neo-6M module  
-- ☁️ Cloud updates through ThingSpeak  
-- 📱 Instant driver alerts via Blynk mobile app  
-- 🧠 Offline AI-based traffic sign detection using YOLOv8  
-- 🔋 Dual-mode operation (cloud + edge fallback)
+- 📍 Live GPS tracking via Neo-6M module  
+- ☁️ Cloud integration using AWS and Google Maps  
+- 📱 Real-time road alerts through Blynk mobile app  
+- 🧠 On-device traffic sign detection using YOLOv8  
+- 🤖 Chatbot interface for driver queries (planned)  
+- 🛠️ Modular architecture for easy upgrades
 
 ---
 
-## 🔧 System Components
+## 🔧 Hardware and Software Components
 
-| Component         | Description                                |
-|------------------|--------------------------------------------|
-| Raspberry Pi 3B+ | Core processing unit                        |
-| Neo-6M GPS       | Provides live location data                |
-| Pi Camera v1.3   | Captures road visuals for AI detection     |
-| ThingSpeak       | Cloud platform for GPS data visualization  |
-| Blynk            | Sends real-time alerts to the driver       |
-| YOLOv8           | On-device traffic sign recognition         |
+| Component                | Description                                      |
+|--------------------------|--------------------------------------------------|
+| Raspberry Pi 3B+         | Main processing and communication hub           |
+| Neo-6M GPS Module        | Provides real-time latitude & longitude         |
+| Raspberry Pi Camera v1.3 | Captures live road footage                      |
+| AWS IoT + AWS Lambda     | Cloud services for data processing              |
+| Google Maps API          | GPS coordinate visualization                    |
+| Blynk                    | Delivers alerts to the driver's mobile device   |
+| YOLOv8                   | AI model for traffic sign classification        |
+| Python, PyTorch, OpenCV  | Framework and libraries for processing and AI   |
 
 ---
 
-## 🔄 Workflow
+## 🔄 System Workflow
 
-1. 📡 GPS gathers real-time coordinates.
-2. ☁️ Data is uploaded to ThingSpeak for monitoring.
-3. 📲 Driver receives alerts via the Blynk app.
-4. 📷 Camera captures signs; YOLOv8 handles detection locally if offline.
+1. GPS module gathers real-time coordinates  
+2. Raspberry Pi sends data to AWS IoT Core  
+3. AWS Lambda processes and stores data, updates Google Maps  
+4. Blynk app notifies drivers of upcoming road conditions  
+5. YOLOv8 runs locally to detect traffic signs even when AWS is unreachable
+
+---
+
+## 🤖 AI Traffic Sign Recognition
+
+- Trained using pre-annotated traffic sign dataset  
+- Deployed locally on Raspberry Pi using PyTorch + OpenCV  
+- Real-time classification from live camera feed  
+- Operates independently of cloud connectivity  
+
+---
+
+## 📊 Results and Testing
+
+- ✅ Precision, confidence & recall curves analyzed  
+- ✅ Confusion matrix evaluated for model accuracy  
+- ✅ YOLOv8 tested successfully on live video input  
+- ✅ Real-time location confirmed on AWS & Blynk dashboards  
+- ✅ Fully functional prototype implemented and tested  
 
 ---
 
 ## 💡 Benefits
 
-- ✅ Improved road safety and hazard awareness  
-- ✅ Works with or without internet access  
-- ✅ Detects traffic signs and issues alerts automatically  
-- ✅ Portable and cost-efficient solution
+- Increases road safety with proactive alerts  
+- Dual-mode: cloud-enabled with offline AI fallback  
+- Minimizes fuel consumption and travel delays  
+- Modular and scalable for future transport solutions
 
 ---
 
-## 🛠️ Technologies Used
+## 🧪 Connections (GPS Module)
 
-- Python, OpenCV, PyTorch  
-- Ultralytics YOLOv8  
-- Blynk IoT Platform  
-- ThingSpeak Cloud  
-- Raspberry Pi OS
+- VCC → 3.3V or 5V on RPi  
+- GND → GND on RPi  
+- TX → GPIO15 (UART RX)  
+- RX → GPIO14 (UART TX)
 
 ---
+
 
 ## 🛡️ License
 
 All rights reserved.  
-This software may not be copied, modified, or distributed without written permission from the author.
-
+This software may not be copied, modified, or redistributed without explicit permission from the authors.
